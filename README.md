@@ -61,13 +61,15 @@ magicbit=github:devegied/pxt-i2c-keypad
 ```
 ```blocks
 i2cKeypad.onKey(i2cKeypad.Keys.Any, i2cKeypad.KeyAction.Pressed, function () {
-    basic.showString(i2cKeypad.currentSymbol())
+    basic.showString("" + convertToText(i2cKeypad.currentKey()) + "-" + i2cKeypad.currentSymbol())
 })
 i2cKeypad.onKey(i2cKeypad.Keys.Any, i2cKeypad.KeyAction.Released, function () {
     basic.clearScreen()
 })
+i2cKeypad.initKeypadController("123A456B789C*0#D")
 ```
 
+![Demo code](demo.png)
 
 ## Blocks preview
 
