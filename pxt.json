@@ -1,0 +1,21 @@
+{
+    "name": "I2C Keypad",
+    "version": "1.0.0",
+    "description": "Makecode I2C Keypad extension for micro:bit",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
