@@ -35,7 +35,9 @@ Optionaly initialize the keypad controller by defining key symbols
 onKey(key: Keys, action: KeyAction, handler: () => void)
 ```
 ```block
-i2cKeypad.
+i2cKeypad.onKey(i2cKeypad.Keys.K1, i2cKeypad.KeyAction.Pressed, () => {
+
+})
 ```
 Do something when a key is pressed or released.
   - key (has a picker UI), the key to be checked, eg: Keys.K1
