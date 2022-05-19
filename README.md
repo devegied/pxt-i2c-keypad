@@ -19,14 +19,23 @@ search for **devegied/pxt-i2c-keypad** and import
 
 ## API
 
+```package
+magicbit=github:devegied/pxt-i2c-keypad
+```
 ```sig
 initKeypadController(symbols: string)
+```
+```block
+i2cKeypad.initKeypadController("123A456B789C*0#D")
 ```
 Optionaly initialize the keypad controller by defining key symbols
   - symbols on keypad keys from left to right and from top to bottom expressed as a string, eg: "123A456B789C*0#D"
 
 ```sig
 onKey(key: Keys, action: KeyAction, handler: () => void)
+```
+```block
+i2cKeypad.
 ```
 Do something when a key is pressed or released.
   - key (has a picker UI), the key to be checked, eg: Keys.K1
@@ -36,15 +45,24 @@ Do something when a key is pressed or released.
 ```sig
 currentKey(): number
 ```
+```block
+i2cKeypad.currentKey()
+```
 Returns the key index of the last key event that was received. It could be either a key pressed or released event.
 
 ```sig
 currentSymbol(): string
 ```
+```block
+i2cKeypad.currentSymbol()
+```
 Returns the key symbol of the last key event that was received. It could be either a key pressed or released event.
 
 ```sig
 isPressed(keyIndex: number): boolean
+```
+```block
+i2cKeypad.isPressed(1)
 ```
 Returns true if a specific key is currently pressed. False otherwise.
   - keyIndex (has a picker UI), the key index to be checked 
@@ -52,13 +70,13 @@ Returns true if a specific key is currently pressed. False otherwise.
 ```sig
 wasPressed(): boolean
 ```
+```block
+i2cKeypad.wasPressed()
+```
 Returns true if any key was pressed since the last call of this function. False otherwise.
 
 ## Demo
 
-```package
-magicbit=github:devegied/pxt-i2c-keypad
-```
 ```blocks
 i2cKeypad.onKey(i2cKeypad.Keys.Any, i2cKeypad.KeyAction.Pressed, function () {
     basic.showString("" + convertToText(i2cKeypad.currentKey()) + "-" + i2cKeypad.currentSymbol())
@@ -81,7 +99,7 @@ This image may take a few minutes to refresh.
 ```cards
 i2cKeypad.initKeypadController("123A456B789C*0#D")
 i2cKeypad.onKey(i2cKeypad.Keys.K1, i2cKeypad.KeyAction.Pressed, () => {
-    
+
 })
 i2cKeypad.currentKey()
 i2cKeypad.currentSymbol()
@@ -93,7 +111,8 @@ wasPressed()
 
 Licensed under the MIT License (MIT). See LICENSE file for more details.
 
-Copyright (c) 2018, [microbit/micropython Chinese community](http://www.micropython.org.cn)
+Copyright (c) 2022, devegied
+Copyright (c) 2020, [MakerBit](https://github.com/1010Technologies/pxt-makerbit-touch)
 
 #### Metadata (used for search, rendering)
 
