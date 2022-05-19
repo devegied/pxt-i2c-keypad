@@ -20,24 +20,16 @@ search for **devegied/pxt-i2c-keypad** and import
 ## API
 
 ```package
-magicbit=github:devegied/pxt-i2c-keypad
+i2cKeypad=github:devegied/pxt-i2c-keypad
 ```
 ```sig
-initKeypadController(symbols: string)
-```
-```block
 i2cKeypad.initKeypadController("123A456B789C*0#D")
 ```
 Optionaly initialize the keypad controller by defining key symbols
   - symbols on keypad keys from left to right and from top to bottom expressed as a string, eg: "123A456B789C*0#D"
 
 ```sig
-onKey(key: Keys, action: KeyAction, handler: () => void)
-```
-```block
-i2cKeypad.onKey(i2cKeypad.Keys.K1, i2cKeypad.KeyAction.Pressed, () => {
-
-})
+i2cKeypad.onKey(i2cKeypad.Keys.K1, i2cKeypad.KeyAction.Pressed, () => {})
 ```
 Do something when a key is pressed or released.
   - key (has a picker UI), the key to be checked, eg: Keys.K1
@@ -45,35 +37,23 @@ Do something when a key is pressed or released.
   - handler, code to run when the event is raised
 
 ```sig
-currentKey(): number
-```
-```block
-i2cKeypad.currentKey()
+i2cKeypad.currentKey(): number
 ```
 Returns the key index of the last key event that was received. It could be either a key pressed or released event.
 
 ```sig
-currentSymbol(): string
-```
-```block
-i2cKeypad.currentSymbol()
+i2cKeypad.currentSymbol(): string
 ```
 Returns the key symbol of the last key event that was received. It could be either a key pressed or released event.
 
 ```sig
-isPressed(keyIndex: number): boolean
-```
-```block
-i2cKeypad.isPressed(1)
+i2cKeypad.isPressed(keyIndex: number): boolean
 ```
 Returns true if a specific key is currently pressed. False otherwise.
   - keyIndex (has a picker UI), the key index to be checked 
 
 ```sig
-wasPressed(): boolean
-```
-```block
-i2cKeypad.wasPressed()
+i2cKeypad.wasPressed(): boolean
 ```
 Returns true if any key was pressed since the last call of this function. False otherwise.
 
