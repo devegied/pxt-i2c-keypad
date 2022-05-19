@@ -37,23 +37,23 @@ Do something when a key is pressed or released.
   - handler, code to run when the event is raised
 
 ```sig
-i2cKeypad.currentKey(): number
+i2cKeypad.currentKey()
 ```
 Returns the key index of the last key event that was received. It could be either a key pressed or released event.
 
 ```sig
-i2cKeypad.currentSymbol(): string
+i2cKeypad.currentSymbol()
 ```
 Returns the key symbol of the last key event that was received. It could be either a key pressed or released event.
 
 ```sig
-i2cKeypad.isPressed(keyIndex: number): boolean
+i2cKeypad.isPressed(1)
 ```
 Returns true if a specific key is currently pressed. False otherwise.
   - keyIndex (has a picker UI), the key index to be checked 
 
 ```sig
-i2cKeypad.wasPressed(): boolean
+i2cKeypad.wasPressed()
 ```
 Returns true if any key was pressed since the last call of this function. False otherwise.
 
