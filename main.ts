@@ -129,7 +129,7 @@ namespace i2cKeypad {
     /**
      * Do something when any of the symbols are entered
      * @param keys any of the symbols in this string will initiate execution
-     * @param {i2cKeypadOKPCb} cb code executed when one of indicated symbols is entered
+     * @param cb code executed when one of indicated symbols is entered, it will have access to symbol of the key that initiated this execution and the symbols as a string entered earlier
      */
     //% blockId=i2cKeypad_on_keys_drag block="on any of the keys %keys pressed" blockGap=16
     //% draggableParameters=reporter blockAllowMultiple=false
@@ -146,12 +146,6 @@ namespace i2cKeypad {
         })
         onTheKeyPressedHandler = cb;
     }
-    /**
-     * Code executed when one of indicated symbols is entered
-     * @callback i2cKeypadOKPCb
-     * @param theKey symbol of the key that initiated this execution
-     * @param stringBeforeTheKey the symbols entered earlier as a string
-     */
     
     /**
      * Returns the key index of the last key event that was received.
