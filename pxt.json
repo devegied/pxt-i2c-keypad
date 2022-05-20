@@ -1,6 +1,6 @@
 {
     "name": "I2C Keypad",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Makecode I2C Keypad extension for micro:bit",
     "license": "MIT",
     "dependencies": {

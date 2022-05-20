@@ -57,6 +57,9 @@ namespace i2cKeypad {
 
     let keyState: KeyState;
     let keyPadSymbols: string = "123A456B789C*0#D";
+    let onTheKeyPressedHandler: (theKey: string, stringBeforeTheKey: string) => void;
+    let collectedKeyPresses: string = "";
+
     /**
      * Optionaly initialize the keypad controller by defining key symbols.
      * @param symbols symbols on keypad keys from left to right and from top to bottom expressed as a string, eg: "123A456B789C*0#D"
@@ -123,6 +126,33 @@ namespace i2cKeypad {
             keyState.onReleased.push(new KeyHandler(key, handler));
         }
     }
+    /**
+     * Do something when any of the symbols are entered
+     * @param keys any of the symbols in this string will initiate execution
+     * @param {i2cKeypadOKPCb} cb code executed when one of indicated symbols is entered
+     */
+    //% blockId=i2cKeypad_on_keys_drag block="on any of the keys %keys pressed" blockGap=16
+    //% draggableParameters=reporter blockAllowMultiple=false
+    //% keys.defl="#"
+    export function onKeysPressed(keys: string, cb: (theKey: string, stringBeforeTheKey: string) => void) {
+        i2cKeypad.onKey(i2cKeypad.Keys.Any, i2cKeypad.KeyAction.Pressed, function () {
+            let receivedSymbol = i2cKeypad.currentSymbol();
+            if (keys.indexOf(receivedSymbol)>=0){
+                onTheKeyPressedHandler(receivedSymbol, collectedKeyPresses);
+                collectedKeyPresses = "";
+            }else{
+                collectedKeyPresses += receivedSymbol;
+            }
+        })
+        onTheKeyPressedHandler = cb;
+    }
+    /**
+     * Code executed when one of indicated symbols is entered
+     * @callback i2cKeypadOKPCb
+     * @param theKey symbol of the key that initiated this execution
+     * @param stringBeforeTheKey the symbols entered earlier as a string
+     */
+    
     /**
      * Returns the key index of the last key event that was received.
      * It could be either a key pressed or released event.

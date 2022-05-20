@@ -37,6 +37,15 @@ Do something when a key is pressed or released.
   - handler, code to run when the event is raised
 
 ```sig
+i2cKeypad.onKeysPressed("*#", (theKey,stringBeforeTheKey) => {})
+```
+Do something when any of the symbols are entered.
+  - keys, any of the symbols in this string will initiate execution, eg: "*#"
+  - cb, code to run when the event is raised
+  - theKey, symbol of the key that initiated this execution
+  - stringBeforeTheKey, the symbols entered since the last execution as a string
+
+```sig
 i2cKeypad.currentKey()
 ```
 Returns the key index of the last key event that was received. It could be either a key pressed or released event.
