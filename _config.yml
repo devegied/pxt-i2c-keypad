@@ -3,6 +3,8 @@ makecode:
   platform: microbit
   home_url: https://makecode.microbit.org/
 theme: jekyll-theme-cayman
+title: I2C Keypad
+description: Makecode extension for matrix keypad connected to micro:bit through I2C
 include:
   - assets
   - README.md

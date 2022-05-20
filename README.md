@@ -68,6 +68,7 @@ Returns true if any key was pressed since the last call of this function. False 
 
 ## Demo
 
+First example shows key index and key symbol when keypad buttons are pressed
 ```blocks
 i2cKeypad.onKey(i2cKeypad.Keys.Any, i2cKeypad.KeyAction.Pressed, function () {
     basic.showString("" + convertToText(i2cKeypad.currentKey()) + "-" + i2cKeypad.currentSymbol())
@@ -77,8 +78,22 @@ i2cKeypad.onKey(i2cKeypad.Keys.Any, i2cKeypad.KeyAction.Released, function () {
 })
 i2cKeypad.initKeypadController("123A456B789C*0#D")
 ```
+![First example code](demo.png)
 
-![Demo code](demo.png)
+Second example shows PINcode validation. PIN code entrance is finished by pressing ```#```, half entered code can be cleared by pressing ```*```
+```blocks
+i2cKeypad.onKeysPressed("*#", function (theKey, stringBeforeTheKey) {
+    if (theKey == "#" && stringBeforeTheKey == pinCode) {
+        basic.showIcon(IconNames.Happy)
+    } else {
+        basic.showIcon(IconNames.Sad)
+    }
+})
+let pinCode = ""
+pinCode = "1234"
+```
+
+![Second example code](demo2.png)
 
 ## Blocks preview
 
@@ -90,6 +105,9 @@ This image may take a few minutes to refresh.
 ```cards
 i2cKeypad.initKeypadController("123A456B789C*0#D")
 i2cKeypad.onKey(i2cKeypad.Keys.K1, i2cKeypad.KeyAction.Pressed, () => {
+
+})
+i2cKeypad.onKeysPressed("*#", (theKey,stringBeforeTheKey) => {
 
 })
 i2cKeypad.currentKey()
